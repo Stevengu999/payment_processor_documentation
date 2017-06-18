@@ -1,189 +1,85 @@
 ---
-title: API Reference
+title: Python payment processor API
 
 language_tabs:
-  - shell
-  - ruby
   - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - shell
 
 includes:
+  - account
   - errors
-
 search: true
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+This API is designed to be both simple and "correct" from a technical perspective. I would like to stick to a strong RESTful principle with endpoints named after models and methods being CRUD (create, read, update, destroy).
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+For testing purposes and speeding up development we highly recommend [Postman](https://www.getpostman.com/apps). It enables you to store all variables, headers in one place and make a request in one
+click.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+This example API documentation page was created with [Slate](https://github.com/tripit/slate). 
 
 # Authentication
 
-> To authorize, use this code:
+All endpoints will require authentication with an **api_key** (associated with a project). Think 
+about project as about unique unit, all other parts are around it. In our case project
+is our current ICO.
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+At first you should receive your project api key for performing
+authorize requests. Simply run this commands.
 
 ```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+python manage.py shell # in root of project
+>> from payment_processor_api.models import Project
+>> Project.objects.create()
+>> Project.objects.create().api_key.secret_access_key
+>> 72tyrha545ccaa7d1c483782783914911fe52df3 # save this to .env file
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
+# Project
 
-```javascript
-const kittn = require('kittn');
+## Get All requirements
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
 
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
+After recieving **api_key** now we can make authorized requests.
+At first you should make a POST request on link '/project' and in return
+you receive json dictionary with all requirements.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+`POST http://localhost:8000/project/defaults?project_key={{project_key}}`
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+curl "http://localhost:8000/project/defaults?project_key={{project_key}}"
+  -H "PROJECTKEY: 72tyrha545ccaa7d1c483782783914911fe52df3"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "default_confirmation_level": 6,
+  "default_callback": "hell.comm",
+  "default_deposit_behavior": {"recipients": [
+    {
+      "receival_address": "0x1000000000000000000000000000000000000000",
+      "withdrawal_percent": 52
+    },
+    {
+      "receival_address": "0x1220000000000000000000000000000000000000",
+      "withdrawal_percent": 48
+    }
+    ]}
 }
 ```
 
-This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+### Query Parameters
 
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
+Parameter | Default | Description
+--------- | ------- | -----------
+callback_url | "" | 
+confirmation_level | 1 - minimum , 10 - maximum | 
+recipient_list |[]|Format: [{address: percent}, {address: percent}]. Percents must sum to 100.
