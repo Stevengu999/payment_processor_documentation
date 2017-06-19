@@ -20,20 +20,27 @@ When a deposit is confirmed, we trigger withdrawals to distribute the funds to t
 
 ### Fees
 
-Two types of fees affect the actual amounts transferred to recipients. 
+Two types of fees affect the final amounts transferred to your configured recipients. 
 
 **Processing Fees**:
 
-  Before processing any transfers to recipients, we deduct a processing fee. This fee is deducted exactly once per incoming payment. The amount charged is equal to the Ethereum Transaction Fee (ETF) required for us to make a transfer from the account to our receiving address. IE, if the ETF for a transfer from the hotwallet account to us is 100000 wei, we will a charge a processing fee of 100000 Wei. This means an effective total of 200000 is deducted from the account.
+  Before processing any transfers to recipients, we deduct a processing fee. This fee is deducted exactly once per incoming payment. The amount charged is equal to the gas required to make a transfer from the hot wallet account to our receiving address TIMES the gas price (the Ethereum Transaction Fee). This means that the amount substracted from the account before distribution will be 2 TIMES the Ethereum Transaction Fee. One half being our fee and one half paying for the transfer of our fee to us.
 
-  This means that we charge a nominal, flat fee per transaction which is benchmarked to the cost of transacting on the Ethereum chain.
+  This fee structure has been carefully designed. It means that we charge a nominal, flat fee per incoming transaction which is benchmarked to the cost of transacting on the Ethereum chain. The cost you will pay for this API is proportional to the activity occuring on the chain.
 
-**Ethereum Transaction Fees**:
+**Withdrawal Fee**:
 
-  Following this, we transfer funds to the recipients configured on the account. The actual amount transferred to each recipient is the percent of the deposit owed to them MINUS the Ethereum transaction fee for the transaction to them. 
+  After transferring our fee, we transfer funds to the recipients configured on the account. The actual amount transferred to each recipient is the amount owed to them MINUS the Ethereum Transaction Fee for the transaction to pay them.
+
+**Net Result**:
+
+  If you have an account configured to distribute incoming payments to a single recipient, the recipient will receive the amount of the deposit MINUS 3 TIMES the Ethereum Transaction Fee. Of the amount subtracted, 1 parts will go to Zerion and two parts will be used to pay transaction costs. 
 
 <aside class="notice">
-  Note that transfers to complex contracts (which execute code upon the receival of funds) will consume more gas and thus more Ether will be consumed in the transaction. Similarly, more recipients will consume more of the total either paid to the account during the withdrawal process.
+  Transfers to contracts (which execute code upon the receival of funds) will consume more gas and thus more Ether will be spent on withdrawal transaction with contracts as recipients. The more complex the code run, the more gas used.
+</aside>
+<aside class="notice">
+  Accounts with multiple recipients will result in one transaction being made per recipient. This will consume more gas, meaning that a smaller relative percentage of the incoming payment will be transferred to recipients. The change is neglegible provided the payments being received are of reasonable size. 
 </aside>
 
 ### Confirmation and Voiding

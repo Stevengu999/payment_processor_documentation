@@ -191,7 +191,7 @@ This endpoint returns a list of all accounts associated with a project along wit
 This endpoint returns your accounts, with a focus on operational rather than configuration data. All the balance fields are displayed in Wei. The meaning of each is as follows:
 
 1. `pending_balance` corresponds to the sum of all deposits that have not yet been confirmed.
-2. `confirmed_balance` corresponds to the sum of all confirmed deposits that still remains in the account. IE, that has not been withdrawn. Most projects should always show 0 for this field unless the hotwallet is being used as a store of value.
+2. `confirmed_balance` corresponds to the sum of all confirmed deposits that still remains in the account. IE, that has not been withdrawn. Most projects should always show 0 for this field unless the hot wallet is being used as a store of value.
 3. `withdrawn_balance` the total amount that has been passed onto recipients.
 
 ## Get One Accounts

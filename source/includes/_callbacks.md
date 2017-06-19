@@ -35,7 +35,7 @@ The data in the callback is designed to help you securely associate incoming pay
 
 3. The outer occurence of `amount_in_wei` is the amount that was paid to the account.
 
-4. `tx_hash` is the TX hash of the transaction in which the payment was made. It represents a payment from your user's Ethereum account into the hotwallet account.
+4. `tx_hash` is the TX hash of the transaction in which the payment was made. It represents a payment from your user's Ethereum account into the hot wallet account.
 
 5. The `withdrawals` field contains an array of all of the payments that were made by our API to distribute the funds to the recipients specified in deposit behavior. Each withdrawal has the address of the recipient, the amount, and the TX hash of the withdrawal on the Ethereum chain.
 
