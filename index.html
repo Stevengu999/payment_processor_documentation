@@ -283,7 +283,7 @@
 <p>Request:</p>
 </blockquote>
 <pre class="highlight python tab-python"><code><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-  <span class="s">"https://ethereum-processor-staging.herokuapp.com/project/defaults"</span><span class="p">,</span>
+  <span class="s">"https://ethereum-processor.herokuapp.com/project/defaults"</span><span class="p">,</span>
   <span class="n">json</span><span class="o">=</span><span class="p">{</span>
     <span class="s">"default_confirmation_level"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
     <span class="s">"default_callback"</span><span class="p">:</span> <span class="s">"your_app_server.com"</span><span class="p">,</span>
@@ -297,7 +297,7 @@
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
-    <span class="s">"PROJECT_KEY"</span><span class="p">:</span> <span class="s">"e86548cbf8a07f0aa3e1ec31b35614eb"</span>
+    <span class="s">"PROJECT_KEY"</span><span class="p">:</span> <span class="s">"YOUR_KEY"</span>
   <span class="p">})</span>
 </code></pre>
 <blockquote>
@@ -686,29 +686,39 @@
 
 <h3 id="detection">Detection</h3>
 
-<p>When a deposit is first detected, we record it as a Pending Deposit. Typically, it takes 1-3 minutes to detect a payment after it is made.</p>
+<p>Our system continuously scans the Ethereum chain, looking for new deposits into the accounts created through the system. When a payment to an account appears in a block, we record it as a &lsquo;Pending&rsquo; Deposit. Typically, it takes 1-3 minutes to detect a payment after it is made. At this point, no callback is made. The block number or &lsquo;block height&rsquo; is recorded.</p>
 
 <h3 id="confirmation">Confirmation</h3>
 
-<p>When the number of blocks after the block containing the transaction equals the confirmation level of the account to which the deposit was made, the deposit is considered as Confirmed. At this point, we make a callback to your servers and process the withdrawals. Typically, confirmation will occur 5-10 minutes from when a payment is made.</p>
+<p>When the number of blocks created after the one containing the transaction equal the confirmation level of the account, the payment becomes &lsquo;Confirmed&rsquo;. At this point, we make a callback to your servers and process withdrawals to distribute the funds (see below). Typically, confirmation will occur 5-10 minutes from when a payment is made.</p>
 
 <h3 id="voiding">Voiding</h3>
 
-<p>If a deposit does not reach the confirmation level after 24 hours from its time of detection, the deposit is voided. This should almost never occur. It happens when a transaction appears in an UNCLEd block.</p>
+<p>If a payment does not reach the confirmation level by 24 hours after it was detected, it is voided. This should almost never occur. It happens when a transaction appears in an UNCLEd block or when there is some other divergence in the chain.</p>
 
 <h2 id="withdrawals">Withdrawals</h2>
 
-<p>When a deposit is confirmed, we create withdrawals to distribute the funds to the recipients configured. Each withdrawal amount is calculated based on the recipient&rsquo;s withdrawal percentage. </p>
+<p>When a deposit is confirmed, we trigger withdrawals to distribute the funds to the recipients configured on the account. Each withdrawal amount is calculated based on the recipient&rsquo;s withdrawal percentage. </p>
 
 <h3 id="fees">Fees</h3>
 
-<p>Before processing any withdrawals, we deduct our processing fee. This fee is equal to the Ethereum transaction fee required for us to withdraw the fee from the account. IE, if the Ethereum fee for a withdrawal from the account to our account is 100000 Wei, we will charge 100000 Wei to process the deposit. This means a total of 200000 is deducted from the account (our fee and the amount to pay for the transaction).</p>
+<p>Two types of fees affect the actual amounts transferred to recipients. </p>
 
-<p>Following this, we transfer funds to the recipients specified on the account. The actual amount transferred to each recipient is the percent of the deposit owed to them MINUS the Ethereum transaction fee for the withdrawal.</p>
+<p><strong>Processing Fees</strong>:</p>
+
+<p>Before processing any transfers to recipients, we deduct a processing fee. This fee is equal to the Ethereum Transaction Fee required for us to make a transfer from the account. IE, if the Ethereum fee for a transfer from the hotwallet account is 100000 wei, we will a charge a processing fee of 100000 Wei. This means an effective total of 200000 is deducted from the account.</p>
+
+<p><strong>Ethereum Transaction Fees</strong>:</p>
+
+<p>Following this, we transfer funds to the recipients configured on the account. The actual amount transferred to each recipient is the percent of the deposit owed to them MINUS the Ethereum transaction fee for the transaction to them. </p>
+
+<aside class="notice">
+  Note that transfers to complex contracts (which execute code upon the receival of funds) will consume more gas and thus more Ether will be consumed in the transaction. Similarly, more recipients will consume more of the total either paid to the account during the withdrawal process.
+</aside>
 
 <h3 id="confirmation-and-voiding">Confirmation and Voiding</h3>
 
-<p>We monitor all withdrawals to ensure they are confirmed based on the same procedure above. If the withdrawals fail, they are automatically retried until they succeed. </p>
+<p>We monitor all withdrawals to ensure they are confirmed based on the same procedure used for deposits. If any withdrawal fails, it is automatically retried until it succeeds. </p>
 
           <h1 id="errors">Errors</h1>
 
