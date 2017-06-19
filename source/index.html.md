@@ -8,7 +8,7 @@ includes:
   - project
   - account
   - callbacks
-  - withdrawal_procedure
+  - payment_procedure
   - errors
 
 search: true

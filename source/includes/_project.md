@@ -20,7 +20,7 @@ default_deposit_behavior | JSON Dictionary | The value of this field determines 
 
 ```python
 requests.post(
-  "https://ethereum-processor-staging.herokuapp.com/project/defaults",
+  "https://ethereum-processor.herokuapp.com/project/defaults",
   json={
     "default_confirmation_level": 6,
     "default_callback": "your_app_server.com",
@@ -34,7 +34,7 @@ requests.post(
     }
   },
   headers={
-    "PROJECT_KEY": "e86548cbf8a07f0aa3e1ec31b35614eb"
+    "PROJECT_KEY": "YOUR_KEY"
   })
 ```
 
