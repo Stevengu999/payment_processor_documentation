@@ -10,7 +10,7 @@ This flow may change depending on application. You could create one account per 
 
 ### Base URL
 
-The base route related to all project actions is `https://ethereum-processor.herokuapp.com/accounts`. 
+The base route related to all account actions is `https://ethereum-processor.herokuapp.com/accounts`. 
 
 ### Fields
 
@@ -194,7 +194,7 @@ This endpoint returns your accounts, with a focus on operational rather than con
 2. `confirmed_balance` corresponds to the sum of all confirmed deposits that still remains in the account. IE, that has not been withdrawn. Most projects should always show 0 for this field unless the hot wallet is being used as a store of value.
 3. `withdrawn_balance` the total amount that has been passed onto recipients.
 
-## Get One Accounts
+## Get One Account
 
 > Request:
 
@@ -218,3 +218,7 @@ requests.get(
 ```
 
 This route allows you to query a single account. The fields displayed are exactly the same as those described in the **Get All Accounts** section above. 
+
+### Making the Request
+
+To get the details for a single account, make a GET request to `https://ethereum-processor.herokuapp.com/accounts/<ACCOUNT_PUBLIC_ADDRESS>`. You must include your Project Key in the request.
