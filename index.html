@@ -713,7 +713,7 @@
 
 <p>Before processing any transfers to recipients, we deduct a processing fee. This fee is deducted exactly once per incoming payment. The amount charged is equal to the gas required to make a transfer from the hot wallet account to our receiving address TIMES the gas price (the Ethereum Transaction Fee). This means that the amount substracted from the account before distribution will be 2 TIMES the Ethereum Transaction Fee. One half being our fee and one half paying for the transfer of our fee to us.</p>
 
-<p>This fee structure has been carefully design. It means that we charge a nominal, flat fee per transaction which is benchmarked to the cost of transacting on the Ethereum chain. The cost you will pay for this API is proportional to the activity occuring on the chain.</p>
+<p>This fee structure has been carefully designed. It means that we charge a nominal, flat fee per incoming transaction which is benchmarked to the cost of transacting on the Ethereum chain. The cost you will pay for this API is proportional to the activity occuring on the chain.</p>
 
 <p><strong>Withdrawal Fee</strong>:</p>
 
@@ -721,7 +721,7 @@
 
 <p><strong>Net Result</strong>:</p>
 
-<p>If you have an account configured to distribute incoming payments to a single recipient, you will receive the amount of the deposit MINUS 3 TIMES the Ethereum Transaction Fee. Of the amount subtracted, 1 parts will go to Zerion and two parts will be used to pay transaction costs. </p>
+<p>If you have an account configured to distribute incoming payments to a single recipient, the recipient will receive the amount of the deposit MINUS 3 TIMES the Ethereum Transaction Fee. Of the amount subtracted, 1 parts will go to Zerion and two parts will be used to pay transaction costs. </p>
 
 <aside class="notice">
   Transfers to contracts (which execute code upon the receival of funds) will consume more gas and thus more Ether will be spent on withdrawal transaction with contracts as recipients. The more complex the code run, the more gas used.
