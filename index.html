@@ -397,7 +397,7 @@
 
 <h3 id="base-url">Base URL</h3>
 
-<p>The base route related to all project actions is <code class="prettyprint">https://ethereum-processor.herokuapp.com/accounts</code>. </p>
+<p>The base route related to all account actions is <code class="prettyprint">https://ethereum-processor.herokuapp.com/accounts</code>. </p>
 
 <h3 id="fields">Fields</h3>
 
@@ -626,6 +626,10 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This route allows you to query a single account. The fields displayed are exactly the same as those described in the <strong>Get All Accounts</strong> section above. </p>
+
+<h3 id="making-the-request">Making the Request</h3>
+
+<p>To get the details for a single account, make a GET request to <code class="prettyprint">https://ethereum-processor.herokuapp.com/accounts/&lt;ACCOUNT_PUBLIC_ADDRESS&gt;</code>. You must include your Project Key in the request.</p>
 
           <h1 id="callbacks">Callbacks</h1>
 
