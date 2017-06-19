@@ -221,21 +221,26 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        
+          <h1 id="introduction">Introduction</h1>
 
-<p>The API is designed to be both simple and correct, following RESTful principles. All endpoints are named for the models they interact with and provide CRUD style actions. </p>
+<p>The API is designed to be both simple and technically correct, following RESTful principles. All endpoints are named for the logical models they interact with and provide CRUD style actions. </p>
 
-<p>For testing purposes and speeding up development we highly recommend <a href="https://www.getpostman.com/apps">Postman</a>. It enables you to easily play with the API.</p>
+<p>For testing purposes, we highly recommend <a href="https://www.getpostman.com/apps">Postman</a>. It enables you to easily play with the API.</p>
 
-<p>This API documentation was created with <a href="https://github.com/tripit/slate">Slate</a>. </p>
+<p>This API documentation was created with <a href="https://github.com/tripit/slate">Slate</a>. Please don&rsquo;t hestitate to reach out with feedback and suggestions.</p>
 
 <h1 id="overview">Overview</h1>
 
-<p>The API has 2 primary models - Projects and Accounts. A Project is the base model, representing one, unique use case of the API. Each project will have many accounts, representing hot wallets that can be used to receive payments that will be uniquely associated with your users. </p>
+<p>The API has 2 primary models - Projects and Accounts. A Project is the base model of the system, representing one, unique use case of the API. You will have one project per application that you create. Each project will come to have many accounts. These accounts represent hot wallets that can be used to receive payments and to uniquely associated them with the users of your application. </p>
 
-<p>You can set default payment behaviours for your Project and the use these defaults when creating Accounts. But, Accounts can also be customized on a per-account basis at creation time.</p>
+<p>Projects are used as to authenticate requests and to set default configuration for the accounts you will create. But accounts can also be customized at time of creation. </p>
 
-<h1 id="api-authentication">API Authentication</h1>
+<p>This documentation also refers to payments, deposits and withdrawals. Payments and deposits are interchangeable. They represent money being transferred by your users into a hot wallet that you have created. Withdrawals are created by our system and represent the transfer of money from the hot wallet to your designated recipients.</p>
+
+<p>We suggest reading the entire set of documentation before beginning your implementation. At a minimum you should understand Project Defaults, Account creation and Callback handling. If you want to learn more about how we handle deposit tracking and withdrawal creation, you should read the Payment Handling Procedure Section.</p>
+
+          <h1 id="api-authentication">API Authentication</h1>
 
 <p><strong>All endpoints</strong> will require authentication with a Project Key. This key will be associated with your project and will be given to you by a member of the Zerion team. </p>
 
@@ -595,7 +600,7 @@
 
 <ol>
 <li><code class="prettyprint">pending_balance</code> corresponds to the sum of all deposits that have not yet been confirmed.</li>
-<li><code class="prettyprint">confirmed_balance</code> corresponds to the sum of all confirmed deposits that still remains in the account. IE, that has not been withdrawn. Most projects should always show 0 for this field unless the hotwallet is being used as a store of value.</li>
+<li><code class="prettyprint">confirmed_balance</code> corresponds to the sum of all confirmed deposits that still remains in the account. IE, that has not been withdrawn. Most projects should always show 0 for this field unless the hot wallet is being used as a store of value.</li>
 <li><code class="prettyprint">withdrawn_balance</code> the total amount that has been passed onto recipients.</li>
 </ol>
 
@@ -659,7 +664,7 @@
 
 <ol>
 <li><p>The outer occurence of <code class="prettyprint">amount_in_wei</code> is the amount that was paid to the account.</p></li>
-<li><p><code class="prettyprint">tx_hash</code> is the TX hash of the transaction in which the payment was made. It represents a payment from your user&rsquo;s Ethereum account into the hotwallet account.</p></li>
+<li><p><code class="prettyprint">tx_hash</code> is the TX hash of the transaction in which the payment was made. It represents a payment from your user&rsquo;s Ethereum account into the hot wallet account.</p></li>
 <li><p>The <code class="prettyprint">withdrawals</code> field contains an array of all of the payments that were made by our API to distribute the funds to the recipients specified in deposit behavior. Each withdrawal has the address of the recipient, the amount, and the TX hash of the withdrawal on the Ethereum chain.</p></li>
 </ol>
 
@@ -702,20 +707,28 @@
 
 <h3 id="fees">Fees</h3>
 
-<p>Two types of fees affect the actual amounts transferred to recipients. </p>
+<p>Two types of fees affect the final amounts transferred to your configured recipients. </p>
 
 <p><strong>Processing Fees</strong>:</p>
 
-<p>Before processing any transfers to recipients, we deduct a processing fee. This fee is deducted exactly once per incoming payment. The amount charged is equal to the Ethereum Transaction Fee (ETF) required for us to make a transfer from the account to our receiving address. IE, if the ETF for a transfer from the hotwallet account to us is 100000 wei, we will a charge a processing fee of 100000 Wei. This means an effective total of 200000 is deducted from the account.</p>
+<p>Before processing any transfers to recipients, we deduct a processing fee. This fee is deducted exactly once per incoming payment. The amount charged is equal to the gas required to make a transfer from the hot wallet account to our receiving address TIMES the gas price (the Ethereum Transaction Fee). This means that the amount substracted from the account before distribution will be 2 TIMES the Ethereum Transaction Fee. One half being our fee and one half paying for the transfer of our fee to us.</p>
 
-<p>This means that we charge a nominal, flat fee per transaction which is benchmarked to the cost of transacting on the Ethereum chain.</p>
+<p>This fee structure has been carefully design. It means that we charge a nominal, flat fee per transaction which is benchmarked to the cost of transacting on the Ethereum chain. The cost you will pay for this API is proportional to the activity occuring on the chain.</p>
 
-<p><strong>Ethereum Transaction Fees</strong>:</p>
+<p><strong>Withdrawal Fee</strong>:</p>
 
-<p>Following this, we transfer funds to the recipients configured on the account. The actual amount transferred to each recipient is the percent of the deposit owed to them MINUS the Ethereum transaction fee for the transaction to them. </p>
+<p>After transferring our fee, we transfer funds to the recipients configured on the account. The actual amount transferred to each recipient is the amount owed to them MINUS the Ethereum Transaction Fee for the transaction to pay them.</p>
+
+<p><strong>Net Result</strong>:</p>
+
+<p>If you have an account configured to distribute incoming payments to a single recipient, you will receive the amount of the deposit MINUS 3 TIMES the Ethereum Transaction Fee. Of the amount subtracted, 1 parts will go to Zerion and two parts will be used to pay transaction costs. </p>
 
 <aside class="notice">
-  Note that transfers to complex contracts (which execute code upon the receival of funds) will consume more gas and thus more Ether will be consumed in the transaction. Similarly, more recipients will consume more of the total either paid to the account during the withdrawal process.
+  Transfers to contracts (which execute code upon the receival of funds) will consume more gas and thus more Ether will be spent on withdrawal transaction with contracts as recipients. The more complex the code run, the more gas used.
+</aside>
+
+<aside class="notice">
+  Accounts with multiple recipients will result in one transaction being made per recipient. This will consume more gas, meaning that a smaller relative percentage of the incoming payment will be transferred to recipients. The change is neglegible provided the payments being received are of reasonable size. 
 </aside>
 
 <h3 id="confirmation-and-voiding">Confirmation and Voiding</h3>
@@ -734,7 +747,7 @@
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Your request had</td>
+<td>Bad Request &ndash; Your request has malformed or missing data. See the response for more detail.</td>
 </tr>
 <tr>
 <td>403</td>
