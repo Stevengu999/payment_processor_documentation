@@ -706,7 +706,9 @@
 
 <p><strong>Processing Fees</strong>:</p>
 
-<p>Before processing any transfers to recipients, we deduct a processing fee. This fee is equal to the Ethereum Transaction Fee required for us to make a transfer from the account. IE, if the Ethereum fee for a transfer from the hotwallet account is 100000 wei, we will a charge a processing fee of 100000 Wei. This means an effective total of 200000 is deducted from the account.</p>
+<p>Before processing any transfers to recipients, we deduct a processing fee. This fee is deducted exactly once per incoming payment. The amount charged is equal to the Ethereum Transaction Fee (ETF) required for us to make a transfer from the account to our receiving address. IE, if the ETF for a transfer from the hotwallet account to us is 100000 wei, we will a charge a processing fee of 100000 Wei. This means an effective total of 200000 is deducted from the account.</p>
+
+<p>This means that we charge a nominal, flat fee per transaction which is benchmarked to the cost of transacting on the Ethereum chain.</p>
 
 <p><strong>Ethereum Transaction Fees</strong>:</p>
 
