@@ -4,105 +4,211 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Zerion's Ethereum Payment Processor</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
-}
-.highlight .err {
-  color: #151515;
-  background-color: #ac4142;
-}
-.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
-}
-.highlight .cp {
-  color: #f4bf75;
-}
-.highlight .nt {
-  color: #f4bf75;
-}
-.highlight .o, .highlight .ow {
-  color: #d0d0d0;
-}
-.highlight .p, .highlight .pi {
-  color: #d0d0d0;
-}
-.highlight .gi {
-  color: #90a959;
-}
-.highlight .gd {
-  color: #ac4142;
-}
 .highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
-}
-.highlight .kc {
-  color: #d28445;
-}
-.highlight .kt {
-  color: #d28445;
-}
-.highlight .kd {
-  color: #d28445;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
+  color: #999999;
 }
 .highlight .sr {
-  color: #75b5aa;
+  color: #f6aa11;
 }
-.highlight .si {
-  color: #8f5536;
+.highlight .go {
+  color: #888888;
 }
-.highlight .se {
-  color: #8f5536;
+.highlight .gp {
+  color: #555555;
 }
-.highlight .nn {
-  color: #f4bf75;
+.highlight .gs {
 }
-.highlight .nc {
-  color: #f4bf75;
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
 }
 .highlight .no {
-  color: #f4bf75;
+  color: #66d9ef;
 }
-.highlight .na {
-  color: #6a9fb5;
+.highlight .kt {
+  color: #66d9ef;
 }
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
         </div>
         <div class="search">
@@ -111,177 +217,502 @@
         <ul class="search-results"></ul>
       <div id="toc">
       </div>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>The API is designed to be both simple and correct, following RESTful principles. All endpoints are named for the models they interact with and provide CRUD style actions. </p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>For testing purposes and speeding up development we highly recommend <a href="https://www.getpostman.com/apps">Postman</a>. It enables you to easily play with the API.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>This API documentation was created with <a href="https://github.com/tripit/slate">Slate</a>. </p>
 
-<h1 id="authentication">Authentication</h1>
+<h1 id="overview">Overview</h1>
+
+<p>The API has 2 primary models - Projects and Accounts. A Project is the base model, representing one, unique use case of the API. Each project will have many accounts, representing hot wallets that can be used to receive payments that will be uniquely associated with your users. </p>
+
+<p>You can set default payment behaviours for your Project and the use these defaults when creating Accounts. But, Accounts can also be customized on a per-account basis at creation time.</p>
+
+<h1 id="api-authentication">API Authentication</h1>
+
+<p><strong>All endpoints</strong> will require authentication with a Project Key. This key will be associated with your project and will be given to you by a member of the Zerion team. </p>
+
+<p>In order to authenticate, you must pass your key in the headers of any request to the API under the key <code class="prettyprint">PROJECT_KEY</code>. </p>
+
+          <h1 id="project">Project</h1>
+
+<p>This is the base model of the API. All the accounts you create will be owned by your project. </p>
+
+<h3 id="base-url">Base URL</h3>
+
+<p>The base route related to all project actions is <code class="prettyprint">https://ethereum-processor.herokuapp.com/project/defaults</code>. </p>
+
+<h3 id="fields">Fields</h3>
+
+<p>Projects have 3 fields. </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>default_callback_url</td>
+<td>String, valid URL</td>
+<td>The URL to which a callback is made when an account receives a payment.</td>
+</tr>
+<tr>
+<td>default_confirmation_level</td>
+<td>Integer, minimum 1</td>
+<td>The number of confirmations before a received payment is treated as confirmed.</td>
+</tr>
+<tr>
+<td>default_deposit_behavior</td>
+<td>JSON Dictionary</td>
+<td>The value of this field determines how ethereum received by accounts is distributed. More on this later.</td>
+</tr>
+</tbody></table>
+
+<h2 id="setting-defaults">Setting Defaults</h2>
 
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Request:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<pre class="highlight python tab-python"><code><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+  <span class="s">"https://ethereum-processor-staging.herokuapp.com/project/defaults"</span><span class="p">,</span>
+  <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"default_confirmation_level"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s">"default_callback"</span><span class="p">:</span> <span class="s">"your_app_server.com"</span><span class="p">,</span>
+    <span class="s">"default_deposit_behavior"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s">"recipients"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s">"receival_address"</span><span class="p">:</span> <span class="s">"0xdeadbeefD68880146dF45379661546AB4aBF6C78"</span><span class="p">,</span>
+          <span class="s">"withdrawal_percent"</span><span class="p">:</span> <span class="mf">100.0</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"PROJECT_KEY"</span><span class="p">:</span> <span class="s">"e86548cbf8a07f0aa3e1ec31b35614eb"</span>
+  <span class="p">})</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>Response:</p>
 </blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"default_confirmation_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_callback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your_app_server.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_deposit_behavior"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"receival_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdeadbeefD69595146dF45378888546AB4aBF6C78"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"withdrawal_percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The first step in configuring the API is creating your project&rsquo;s default settings. These settings will be used when creating new accounts, unless custom/override values are supplied. </p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<h3 id="making-the-request">Making the Request</h3>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>To set project defaults, you should make a POST request to <code class="prettyprint">&quot;https://ethereum-processor.herokuapp.com/project/defaults</code>. You will need to</p>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<ol>
+<li>supply your Project Key in the headers, using the key <code class="prettyprint">PROJECT_KEY</code>.</li>
+<li>supply data parameters encoded as valid JSON. Your parameters will only be accepted if you send a post request with valid JSON data and the content-type header (<code class="prettyprint">application/json</code>).</li>
+</ol>
+
+<h3 id="understanding-the-parameters">Understanding the Parameters</h3>
+
+<p>The <code class="prettyprint">default_callback</code> and <code class="prettyprint">default_confirmation_level</code> fields are fairly easy to understand. The callback will be used to make callbacks whenever an account receives a deposit and the confirmation level specifies the number of blocks required for a deposit to be considered as confirmed.</p>
+
+<p>The <code class="prettyprint">default_deposit_behavior</code> field is slightly more complex. It is a dictionary with a single key <code class="prettyprint">recipients</code>. This key holds an array of recipients, each of which is a dictionary with a <code class="prettyprint">receival_address</code> (a 42 character, Ethereum-address String) and a <code class="prettyprint">withdrawal_percent</code> (a float between 0.0 and 100.0). </p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+  The withdrawal percentages in the recipient list must sum to 100.
 </aside>
 
-<h1 id="kittens">Kittens</h1>
+<p><strong>When a deposit is received, it will be distributed based on the receiving account&rsquo;s deposit_behavior</strong>. In this case, it will be passed onto the recipients in the list provided according to the percentages provided. In the future, we may support new kinds of deposit behavior, so watch this space for more!</p>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h3 id="setting-new-project-defaults">Setting New Project Defaults</h3>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>If you have already set some default and want to change the values, simply make a new post request with the new values specified.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<aside class="notice">
+  If a default for a field has already been set, and you do not supply a value for that field in your request, the old value will be preserved. There is currently no way to unset a default once one has been set.
+</aside>
+
+<h2 id="getting-defaults">Getting Defaults</h2>
+
+<p>If you need to inspect your project&rsquo;s defaults, following the instructions below.</p>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Request:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
+<pre class="highlight python tab-python"><code><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+  <span class="s">"https://ethereum-processor.herokuapp.com/project/defaults"</span><span class="p">,</span>
+  <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"PROJECT_KEY"</span><span class="p">:</span> <span class="s">"YOUR_KEY"</span>
+  <span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"default_confirmation_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_callback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your_app_server.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_deposit_behavior"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"receival_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdeadbeefD69595146dF45378888546AB4aBF6C78"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"withdrawal_percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="making-the-request">Making the Request</h3>
+
+<p>To get a project&rsquo;s defaults, you should make a GET request to <code class="prettyprint">&quot;https://ethereum-processor.herokuapp.com/project/defaults</code>. You will need to supply your Project Key in the headers, using the key <code class="prettyprint">PROJECT_KEY</code>.</p>
+
+          <h1 id="account">Account</h1>
+
+<p>This is the function model of the API. It provides the ability to receive Ethereum payments and associate them with users of your application.</p>
+
+<h3 id="using-accounts-in-your-application">Using Accounts in your Application</h3>
+
+<p>Typically, you will create one account per user that signs up to your app. You will then display the account&rsquo;s <code class="prettyprint">public_address</code> to the user. If the user pays the account, a callback will be made to your server and your application logic can proceed knowing the user has paid. </p>
+
+<p>This flow may change depending on application. You could create one account per transaction, with a user being shown a different public address to complete each transaction they start in your application. This is entirely up to you.</p>
+
+<h3 id="base-url">Base URL</h3>
+
+<p>The base route related to all project actions is <code class="prettyprint">https://ethereum-processor.herokuapp.com/accounts</code>. </p>
+
+<h3 id="fields">Fields</h3>
+
+<p>Accounts have 5 fields. </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>public_address</td>
+<td>String, 42 character Ethereum address</td>
+<td>The address at which the account receives payments.</td>
+</tr>
+<tr>
+<td>secret_withdrawal_key</td>
+<td>String, 16 digits</td>
+<td>The secret key which you can use to control certain aspects of the account and validate the authenticity of callbacks.</td>
+</tr>
+<tr>
+<td>callback_url</td>
+<td>String, valid URL</td>
+<td>The URL to which a callback is made when the account receives a payment.</td>
+</tr>
+<tr>
+<td>confirmation_level</td>
+<td>Integer, minimum 1</td>
+<td>The number of confirmations before a received payment is treated as confirmed.</td>
+</tr>
+<tr>
+<td>deposit_behavior</td>
+<td>JSON Dictionary</td>
+<td>The value of this field determines how ethereum received by accounts is distributed. More on this later.</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-an-account-using-project-defaults">Create an Account Using Project Defaults</h2>
+
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+  <span class="s">"https://ethereum-processor.herokuapp.com/accounts"</span><span class="p">,</span>
+  <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"PROJECT_KEY"</span><span class="p">:</span> <span class="s">"YOUR_KEY"</span>
+  <span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"public_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x68bc4251db49cfe754bc58afeac1ef27e8e29cd7"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"secret_withdrawal_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3694e680b4487e60"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"confirmation_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"callback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your_app_server.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deposit_behavior"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"receival_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdeadbeefD68880146dF45379661546AB4aBF6C78"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"withdrawal_percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>In most cases, your project should have values set for all three default fields (<code class="prettyprint">default_callback</code>, <code class="prettyprint">default_confirmation_level</code>, and <code class="prettyprint">default_deposit_behavior</code>). If this is the case, you can create a new account without supplying any additional information.</p>
+
+<h3 id="making-the-request">Making the Request</h3>
+
+<p>To create an account based on project defaults, you should make a POST request to <code class="prettyprint">&quot;https://ethereum-processor.herokuapp.com/accounts</code>. You will need to</p>
+
+<ol>
+<li>supply your Project Key in the headers, using the key <code class="prettyprint">PROJECT_KEY</code>.</li>
+</ol>
+
+<aside class="notice">
+  If there is no project default for a field, and you attempt this request, an error is returned.
+</aside>
+
+<h3 id="understanding-the-response-data">Understanding the Response Data</h3>
+
+<p>In the response to your request, you will see that the callback, confirmation_level, and deposit_behavior fields have been filled with your projects defaults. This is as expected. You may choose to save these values or not.</p>
+
+<p>The <code class="prettyprint">public_address</code> and <code class="prettyprint">secret_withdrawal_key</code> are crucial and must be saved. The <code class="prettyprint">public_address</code> is the address you will show your user in order for them to pay you. The <code class="prettyprint">secret_withdrawal_key</code> will be used to validate the authenticity of callbacks and to control certain aspects of the account.</p>
+
+<h2 id="create-an-account-with-custom-settings">Create an Account with Custom Settings</h2>
+
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+  <span class="s">"https://ethereum-processor.herokuapp.com/accounts"</span><span class="p">,</span>
+  <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"confirmation_level"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s">"callback"</span><span class="p">:</span> <span class="s">"your_custom_app_server.com"</span><span class="p">,</span>
+    <span class="s">"deposit_behavior"</span><span class="p">:</span> <span class="p">{</span><span class="s">"recipients"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s">"receival_address"</span><span class="p">:</span> <span class="s">"0xdeadbeef10000000000000000000000000000000"</span><span class="p">,</span>
+          <span class="s">"withdrawal_percent"</span><span class="p">:</span> <span class="mf">50.0</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s">"receival_address"</span><span class="p">:</span> <span class="s">"0xdeadbeef20000000000000000000000000000000"</span><span class="p">,</span>
+          <span class="s">"withdrawal_percent"</span><span class="p">:</span> <span class="mf">50.0</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"PROJECT_KEY"</span><span class="p">:</span> <span class="s">"YOUR_KEY"</span>
+  <span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"public_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x68bc4251db49cfe754bc58afeac1ef27e8e29cd7"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"secret_withdrawal_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3786e680b448yyts"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"confirmation_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"callback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your_custom_app_server.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deposit_behavior"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"receival_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdeadbeef10000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"withdrawal_percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"receival_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdeadbeef20000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"withdrawal_percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>If you would like to supply custom settings for an account, or if your project does not have defaults, then you will need to supply data in the creation request.</p>
+
+<h3 id="making-the-request">Making the Request</h3>
+
+<p>To create an account based on project defaults, you should make a POST request to <code class="prettyprint">&quot;https://ethereum-processor.herokuapp.com/accounts</code>. You will need to</p>
+
+<ol>
+<li>supply your Project Key in the headers, using the key <code class="prettyprint">PROJECT_KEY</code>.</li>
+<li>supply account parameters as valid json POSt data. Your parameters will only be accepted if you send a post request with valid JSON data and the content-type header (<code class="prettyprint">application/json</code>).</li>
+</ol>
+
+<aside class="notice">
+  If there is no project default for a field, and you attempt this request without supplying a corresponding value, an error is returned. 
+</aside>
+
+<aside class="notice">
+  If you do supply a value for a field with a default, the value you supply will override the default.
+</aside>
+
+<aside class="notice">
+  The deposit behavior dictionary is treated as a whole. You cannot partially override the withdrawal percentages or addresses for your recipients. You must resupply a new, self-contained list of recipients.
+</aside>
+
+<h2 id="get-all-accounts">Get All Accounts</h2>
+
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+  <span class="s">"https://ethereum-processor.herokuapp.com/accounts"</span><span class="p">,</span>
+  <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"PROJECT_KEY"</span><span class="p">:</span> <span class="s">"YOUR_KEY"</span>
+  <span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+    </span><span class="s2">"public_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x890961ba525a60bd23dbd61bc0fdf6faa8440cd4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmed_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pending_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"withdrawn_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="s2">"public_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xbb83b9c468fa6c8c959fd4faf0f4cc89f5223083"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmed_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pending_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"withdrawn_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"public_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x68bc4251db49cfe754bc58afeac1ef27e8e29cd7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmed_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pending_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"withdrawn_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+<p>This endpoint returns a list of all accounts associated with a project along with three balances (<code class="prettyprint">pending_balance</code>, <code class="prettyprint">confirmed_balance</code>, <code class="prettyprint">withdrawn_balance</code>).</p>
 
-<p>This endpoint retrieves all kittens.</p>
+<h3 id="understanding-the-response-data">Understanding the Response Data</h3>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>This endpoint returns your accounts, with a focus on operational rather than configuration data. All the balance fields are displayed in Wei. The meaning of each is as follows:</p>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<ol>
+<li><code class="prettyprint">pending_balance</code> corresponds to the sum of all deposits that have not yet been confirmed.</li>
+<li><code class="prettyprint">confirmed_balance</code> corresponds to the sum of all confirmed deposits that still remains in the account. IE, that has not been withdrawn. Most projects should always show 0 for this field unless the hotwallet is being used as a store of value.</li>
+<li><code class="prettyprint">withdrawn_balance</code> the total amount that has been passed onto recipients.</li>
+</ol>
 
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<h2 id="get-one-accounts">Get One Accounts</h2>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Request:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<pre class="highlight python tab-python"><code><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+  <span class="s">"https://ethereum-processor.herokuapp.com/accounts/&lt;PUBLIC_ADDRESS&gt;"</span><span class="p">,</span>
+  <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"PROJECT_KEY"</span><span class="p">:</span> <span class="s">"YOUR_KEY"</span>
+  <span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"public_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x7e749281df99fc50d54d8c385b9fdde2d9f40f69"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"confirmed_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pending_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"withdrawn_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>This route allows you to query a single account. The fields displayed are exactly the same as those described in the <strong>Get All Accounts</strong> section above. </p>
 
-<p>This endpoint retrieves a specific kitten.</p>
+          <h1 id="callbacks">Callbacks</h1>
 
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>When an account receives a deposit, a callback will be made to the URL in the Account&rsquo;s <code class="prettyprint">callback</code> field with the data you need to associate the deposit with an account.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h2 id="callback-flow">Callback Flow</h2>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3 id="method">Method</h3>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<p>The callback will be made as a POST request, with the data sent as JSON data. Your server must be able to accept POST requests with content-type <code class="prettyprint">application/json</code></p>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
+<h3 id="required-response">Required Response</h3>
+
+<p>If you server receives a callback, and processes it successfully, you must respond with with the following json: <code class="prettyprint">{&quot;status&quot;: &quot;ok&quot;}</code>. This is the OK response. If you do not respond with this, the callback will be considered a failure and the retry procedure will be enacted.</p>
+
+<h3 id="retry-procedure">Retry procedure</h3>
+
+<p>If we cannot reach your server, or we do not receive the OK response, then we will begin retrying the callback. We will retry every hour for the first 3 days and then every 3 hours for the next 4 days. This means we will retry for a total of one week.</p>
+
+<aside class="notice">
+  At the end of the week, we will no longer retry the callback. This means that if your server is down for the full week after a deposit, you will need to use the Account endpoints to check if any payments occured.
+</aside>
+
+<h2 id="understanding-the-data">Understanding the Data</h2>
+
+<p>The data in the callback is designed to help you securely associate incoming payments with users. The fields represent the following:</p>
+
+<ol>
+<li><p><code class="prettyprint">account_address</code> is the <code class="prettyprint">public_address</code> of the account to which the payment is made. It will be an account that is part of your project. You should use this value to associate the payment with a user.</p></li>
+<li><p><code class="prettyprint">account_secret</code> is the first 4 digits of the account&rsquo;s <code class="prettyprint">secret_withdrawal_key</code>. You should only process a callback if these digits match the <code class="prettyprint">secret_withdrawal_key</code> you stored when you created the account.</p></li>
+</ol>
+
+<aside class="notice">
+  If you do not check for this match, anyone could make post requests to your callback URL and trick you into thinking deposits occured.
+</aside>
+
+<ol>
+<li><p>The outer occurence of <code class="prettyprint">amount_in_wei</code> is the amount that was paid to the account.</p></li>
+<li><p><code class="prettyprint">tx_hash</code> is the TX hash of the transaction in which the payment was made. It represents a payment from your user&rsquo;s Ethereum account into the hotwallet account.</p></li>
+<li><p>The <code class="prettyprint">withdrawals</code> field contains an array of all of the payments that were made by our API to distribute the funds to the recipients specified in deposit behavior. Each withdrawal has the address of the recipient, the amount, and the TX hash of the withdrawal on the Ethereum chain.</p></li>
+</ol>
+
+<blockquote>
+<p>The data sent with a callback</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"account_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdeadbeefefbccee2a3a63a10b9d891f8060bbd1b"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"account_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fcadb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount_in_wei"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000000000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tx_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x57defbf2f494b8873bbddba0e0e0139db14def4a7e5d4c3e65d8ed2a6d29b364"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"withdrawals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"recipient_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdeadbeeff9ccefc81badf3fd362bedd094c1881c"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tx_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0aaaaaaacbe9d2cafaa28d6513944d2d24dab2c68d3a6730bbc4abd54e62aad297"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount_in_wei"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000000000000000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+          <h1 id="payment-handling-procedure">Payment Handling Procedure</h1>
+
+<h2 id="deposits">Deposits</h2>
+
+<h3 id="detection">Detection</h3>
+
+<p>When a deposit is first detected, we record it as a Pending Deposit. Typically, it takes 1-3 minutes to detect a payment after it is made.</p>
+
+<h3 id="confirmation">Confirmation</h3>
+
+<p>When the number of blocks after the block containing the transaction equals the confirmation level of the account to which the deposit was made, the deposit is considered as Confirmed. At this point, we make a callback to your servers and process the withdrawals. Typically, confirmation will occur 5-10 minutes from when a payment is made.</p>
+
+<h3 id="voiding">Voiding</h3>
+
+<p>If a deposit does not reach the confirmation level after 24 hours from its time of detection, the deposit is voided. This should almost never occur. It happens when a transaction appears in an UNCLEd block.</p>
+
+<h2 id="withdrawals">Withdrawals</h2>
+
+<p>When a deposit is confirmed, we create withdrawals to distribute the funds to the recipients configured. Each withdrawal amount is calculated based on the recipient&rsquo;s withdrawal percentage. </p>
+
+<h3 id="fees">Fees</h3>
+
+<p>Before processing any withdrawals, we deduct our processing fee. This fee is equal to the Ethereum transaction fee required for us to withdraw the fee from the account. IE, if the Ethereum fee for a withdrawal from the account to our account is 100000 Wei, we will charge 100000 Wei to process the deposit. This means a total of 200000 is deducted from the account (our fee and the amount to pay for the transaction).</p>
+
+<p>Following this, we transfer funds to the recipients specified on the account. The actual amount transferred to each recipient is the percent of the deposit owed to them MINUS the Ethereum transaction fee for the withdrawal.</p>
+
+<h3 id="confirmation-and-voiding">Confirmation and Voiding</h3>
+
+<p>We monitor all withdrawals to ensure they are confirmed based on the same procedure above. If the withdrawals fail, they are automatically retried until they succeed. </p>
 
           <h1 id="errors">Errors</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The Payment Processor API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -291,39 +722,23 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Bad Request &ndash; Your request had</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Forbidden &ndash; you did not supply a valid Project Key and cannot access this route.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td>Not Found &ndash; You requested a route or format that does not exist.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>Method Not Allowed &ndash; You tried to access a route with a method that is not allow.</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>415</td>
+<td>Unsupported Media Type &ndash; you made a POST request with a content-type header that is not supported.</td>
 </tr>
 <tr>
 <td>500</td>
@@ -331,15 +746,13 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
           </div>
       </div>
